@@ -11,10 +11,14 @@ $(document).ready(function () {
     })
    
     function timeTracker() {
-        let currentHour = moment().format("HH");
+        let currentHour = parseInt(moment().format("HH"));
+        console.log(currentHour)
+        console.log(typeof(currentHour))
 
         $(".time-block").each(function () {
             var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+            console.log(blockTime)
+            console.log(typeof(blockTime))
 
             if (blockTime < currentHour) {
                 $(this).removeClass("future");
@@ -22,6 +26,7 @@ $(document).ready(function () {
                 $(this).addClass("past");
             }
             else if (blockTime === currentHour) {
+                console.log('Are you working')
                 $(this).removeClass("past");
                 $(this).removeClass("future");
                 $(this).addClass("present");
